@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Almaty Air Commons: evidence, research, and a critically assessed AI-assisted response to air pollution in Almaty. A project by Gulsana Kabylkyzy, PLS 419.">
+<title>Under the Inversion · Gulsana Kabylkyzy</title>
+<style>
+:root{--paper:#f5f1e8;--ink:#1b3332;--green:#315f50;--sage:#a7b7a0;--muted:#68736b;--rule:#cbd0c3;--rust:#b65a38;--soft:#e8eadf}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.85}
+a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:4px}
+a:hover{color:var(--rust)}
+button,input{font:inherit}
+button,a,input,summary{outline-offset:5px}
+button{cursor:pointer}
+.topline,.eyebrow,.chapter-label,.meta,nav,h1,h2,h3,h4,.caption,table,summary,button,label,output,.budget,footer,.hero-note{font-family:Arial,Helvetica,sans-serif}
+.topline{background:var(--ink);color:var(--paper);font-size:10px;letter-spacing:2px;text-align:center;padding:12px 16px}
+.hero{max-width:1160px;margin:auto;padding:65px 40px 0}
+.hero-top{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.eyebrow{display:block;font-size:10px;line-height:1.6;letter-spacing:2px;font-weight:700;color:var(--green)}
+.issue{font:11px monospace;color:var(--muted)}
+h1{font-size:clamp(58px,10vw,123px);font-weight:800;line-height:.97;letter-spacing:-6px;margin:32px 0}
+h1 em{font-family:Georgia,serif;font-weight:400;color:var(--green)}
+.hero-bottom{display:grid;grid-template-columns:1.8fr 1fr;gap:60px;padding-bottom:25px;align-items:end}
+.dek{font-size:23px;line-height:1.5;max-width:670px;margin:0 0 22px}
+.meta{font-size:11px;font-weight:700;letter-spacing:1px;line-height:1.9}
+.hero-note{border-left:1px solid var(--rule);padding-left:25px;font-size:12px;line-height:1.8;color:var(--muted)}
+.landscape{display:block;width:100%;height:125px;margin-top:15px}
+nav{position:sticky;top:0;z-index:20;display:flex;gap:4px;overflow-x:auto;white-space:nowrap;padding:9px max(20px,calc((100vw - 1080px)/2));background:rgba(245,241,232,.98);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+nav a{font-size:10px;letter-spacing:1px;font-weight:700;text-decoration:none;padding:10px 13px;color:var(--ink)}
+nav a.active{background:var(--ink);color:var(--paper)}
+.progress{height:3px;position:fixed;top:0;left:0;width:0;background:var(--rust);z-index:30}
+main{max-width:1000px;padding:0 40px;margin:auto}
+.opening{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:45px 0;border-bottom:1px solid var(--rule)}
+.headline-number{font:800 84px/.95 Arial,sans-serif;color:var(--green);letter-spacing:-4px}
+.opening p{font-size:17px;line-height:1.6;margin:15px 0}
+.opening .caption{font-size:11px}
+.opening-question{font-size:24px!important;margin-top:10px!important}
+.chapter{padding:65px 0 10px;border-bottom:1px solid var(--rule)}
+.chapter-label{font-size:10px;letter-spacing:2px;color:var(--rust);font-weight:700;margin-bottom:18px}
+h2{font-size:clamp(30px,4.5vw,47px);line-height:1.13;letter-spacing:-1.5px;font-weight:700;margin:0 0 32px}
+h3{font-size:22px;line-height:1.4;letter-spacing:-.4px;margin:34px 0 15px}
+h4{font-size:21px;line-height:1.3;margin:14px 0}
+p{font-size:18px;margin:0 0 23px}
+.ref{font:11px Arial,sans-serif;vertical-align:super;white-space:nowrap;text-decoration:none}
+.ref:hover{text-decoration:underline}
+.question{background:var(--soft);border-left:3px solid var(--green);padding:28px 30px;margin:30px 0}
+.question p{font-size:21px;line-height:1.65;margin:12px 0 0}
+.table-wrap{overflow:auto;margin:25px 0}
+table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.6;text-align:left}
+caption{text-align:left;font-size:11px;color:var(--muted);margin-bottom:12px}
+th,td{padding:13px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:10px;text-transform:uppercase;letter-spacing:1px;background:#e9eade}
+.chart{border:1px solid var(--ink);padding:30px;margin:30px 0}
+figcaption{font-family:Arial,sans-serif;line-height:1.5}
+figcaption strong{font-size:19px;display:block}
+figcaption span{display:block;font-size:11px;color:var(--muted);margin:8px 0 25px}
+.chart-row{display:grid;grid-template-columns:75px 1fr 50px;gap:14px;align-items:center;margin:20px 0;font:13px Arial,sans-serif}
+.track{height:36px;background:#e1e5d9}
+.bar{height:100%;background:var(--green)}
+.bar.summer{background:var(--sage)}
+.axis{display:flex;justify-content:space-between;margin:0 64px 22px 89px;font:10px Arial,sans-serif;color:var(--muted)}
+.caption{font-size:11px!important;line-height:1.75!important;color:var(--muted)}
+summary{cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.5px;padding:14px 0}
+details{border-top:1px solid var(--rule)}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:25px 0}
+.cases article{border:1px solid var(--green);padding:25px;background:#eeeee3}
+.cases p{font-size:16px;margin-bottom:0;line-height:1.8}
+.cases .eyebrow{color:var(--rust);font-size:9px;letter-spacing:1.3px}
+.bill{border:1px solid var(--ink);padding:30px;margin:35px 0;background:#f0eee4}
+.bill-title{text-align:center;font:800 34px Arial,sans-serif;letter-spacing:-1px;border-bottom:2px solid var(--ink);padding-bottom:23px}
+.bill-title span{display:block;font:10px/1.6 Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:12px}
+.bill h3{border-top:1px solid var(--rule);padding-top:25px}
+.bill p{font-size:17px}
+.calculator{background:var(--paper);border:1px solid var(--rule);padding:22px;margin:25px 0}
+.calculator label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:bold}
+output{background:var(--green);color:white;padding:4px 12px;font-size:15px}
+input[type=range]{width:100%;accent-color:var(--green);margin:20px 0}
+.calculator td:last-child,.calculator th:last-child{text-align:right}
+.budget{font-size:48px;line-height:1.1;font-weight:800;color:var(--green);margin:25px 0 15px;letter-spacing:-2px}
+.budget small{font-size:13px;letter-spacing:0;display:block;margin-top:8px;font-weight:400}
+.verdict{padding:32px;background:var(--ink);color:var(--paper);margin:35px 0 25px;scroll-margin-top:90px}
+.verdict .eyebrow{color:#bbd1b8}
+.verdict h3{font-size:31px;margin:14px 0}
+.verdict p{font-size:19px;margin-bottom:0}
+.end-section{padding:55px 0 15px}
+.end-section h2{font-size:32px}
+.statement{padding:28px;border:1px solid var(--green)}
+.statement p{font-size:16px}
+.statement p:last-child{margin-bottom:0}
+.sources{padding-left:24px}
+.sources li{font:13px/1.85 Arial,sans-serif;padding:15px 0 15px 6px;border-bottom:1px solid var(--rule)}
+.sources li:target{background:#e2e9d7}
+.sources a{overflow-wrap:anywhere}
+.source-tag{font:9px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:6px}
+footer{border-top:1px solid var(--ink);padding:25px 0 50px;font-size:10px;line-height:1.9;color:var(--muted);margin-top:30px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
+button{font-size:10px;letter-spacing:1px;background:transparent;border:1px solid var(--green);color:var(--green);padding:10px 15px}
+button:hover{background:var(--green);color:white}
+.skip{position:absolute;top:-100px;background:white;padding:10px;z-index:40}
+.skip:focus{top:0}
+@media(max-width:650px){
+.hero{padding:38px 22px 0}.hero-top{align-items:start}.issue{font-size:9px}h1{letter-spacing:-3px}.hero-bottom,.opening,.cases{grid-template-columns:1fr;gap:22px}.dek{font-size:20px}.hero-note{border-left:0;border-top:1px solid var(--rule);padding:15px 0 0}.landscape{height:80px}main{padding:0 22px}.opening{padding:30px 0}.headline-number{font-size:70px}.chapter{padding-top:45px}p{font-size:17px}.question,.chart,.bill,.verdict{padding:22px}.chart-row{grid-template-columns:58px 1fr 38px;gap:10px;font-size:11px}.axis{margin-left:68px;margin-right:48px}.budget{font-size:41px}.calculator{padding:15px}nav{padding:8px 12px}nav a{font-size:9px;padding:9px}.footer-row{align-items:start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{nav,.progress,button,input[type=range]{display:none}body{background:white}.hero{padding-top:15px}h1{font-size:65px}main{max-width:none}p{font-size:11pt}.chapter{padding-top:25px}.chart,.cases article,.statement{break-inside:avoid}.verdict{background:#eee;color:#111}.verdict .eyebrow{color:#333}.sources li{font-size:9pt}.topline{background:white;color:#111}}
+</style>
+</head>
+<body>
+<a class="skip" href="#problem">Skip to the project</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="topline">AN AI ANSWER FOR KAZAKHSTAN · AIR POLLUTION & PUBLIC RESPONSIBILITY</div>
+
+<header class="hero">
+<div class="hero-top">
+<span class="eyebrow">ALMATY AIR COMMONS<br>RESEARCH · POLICY · DESIGN</span>
+<span class="issue">KAZAKHSTAN / 2026</span>
+</div>
+<h1>UNDER THE<br><em>INVERSION.</em></h1>
+<div class="hero-bottom">
+<div>
+<p class="dek">A forecast can tell Almaty when smog is coming. Who has the power—and the resources—to act?</p>
+<div class="meta">GULSANA KABYLKYZY · PLS 419 COURSE<br>24 NOVEMBER 2026</div>
+</div>
+<div class="hero-note">An evidence-based proposal for publicly accountable air-quality forecasting and funded protection in Almaty’s schools.</div>
+</div>
+<svg class="landscape" viewBox="0 0 1100 125" preserveAspectRatio="none" aria-hidden="true">
+<path d="M0 106 82 75 137 91 222 28 280 66 320 49 399 96 510 10 586 73 642 38 710 88 801 30 899 94 981 55 1100 96V125H0Z" fill="#cbd1c2"/>
+<path d="M0 117 130 95 239 112 354 87 452 116 598 91 705 113 836 88 959 111 1100 96V125H0Z" fill="#9cad98"/>
+<path d="M0 120H1100M0 109H1100" stroke="#315f50" stroke-opacity=".28"/>
+</svg>
+</header>
+
+<nav aria-label="Project sections">
+<a href="#problem" class="active">01 THE PROBLEM</a>
+<a href="#data">02 DATA</a>
+<a href="#research">03 RESEARCH</a>
+<a href="#solution">04 SOLUTION & COST</a>
+<a href="#verdict">VERDICT</a>
+<a href="#sources">SOURCES</a>
+</nav>
+
+<main>
+<div class="opening">
+<div>
+<div class="headline-number">94.0</div>
+<p>µg/m³: a published winter mean for PM₂.₅ in Almaty.</p>
+<div class="caption">Historical study finding, not a live reading or annual citywide average. Tursumbayeva et al. (2022). <a href="#r4">[4]</a></div>
+</div>
+<div>
+<span class="eyebrow">THE CENTRAL ARGUMENT</span>
+<p class="opening-question">Information becomes protection only when institutions can respond.</p>
+<div class="caption">Four sections · 3,439 words including section headings and tables.<br>References and AI transparency statement follow separately.</div>
+</div>
+</div>
+
+<section id="problem" class="chapter">
+<div class="chapter-label">01 / THE PROBLEM</div>
+<h2>The air is shared.<br>The protection is not.</h2>
+
+<p>Almaty’s winter smog is an environmental problem with a social structure. This project focuses on outdoor fine particulate matter, PM₂.₅, during the heating season in Almaty and its urban fringe. It asks how public institutions can reduce exposure among schoolchildren without transferring responsibility to families who cannot afford private protection. The proposed intervention is a school pilot, rather than a claim to solve every source of urban pollution.</p>
+
+<p>PM₂.₅ describes particles with diameters of approximately 2.5 micrometres or smaller. WHO’s 2021 guidelines recommend an annual mean of 5 µg/m³ and a 24-hour level of 15 µg/m³. These are different averaging periods, not interchangeable warning thresholds. Fine-particle exposure matters for cardiovascular and respiratory health; meeting a guideline does not establish that every individual faces zero risk. <a class="ref" href="#r1">[1]</a></p>
+
+<p>Evidence from three complementary sources establishes the issue. The World Bank identifies coal combustion in power and household heating as major contributors to Almaty’s particulate exposure. Kerimray and colleagues document pronounced seasonal and spatial differences. Tursumbayeva and colleagues link winter pollution with weak atmospheric ventilation. Emissions and dispersion interact: mountains influence how pollution disperses, but do not generate the emissions. <a class="ref" href="#r2">[2]</a><a class="ref" href="#r3">[3]</a><a class="ref" href="#r4">[4]</a></p>
+
+<p>The scale is citywide, but exposure and protection vary by location and activity. Residents, commuters, outdoor workers, and pupils do not experience identical conditions. The headline figure on this page—94.0 µg/m³—is a historical winter mean from one study, not a current citywide reading. It establishes severity within that study’s record. It must not be converted into an unsupported count of deaths or illnesses.</p>
+
+<p>The clearest temporal pattern in the reviewed evidence is seasonal deterioration in winter. A continuous worsening trend through 2026 cannot be inferred from studies using different years and instruments. Changes in wind, heating demand, measurement coverage, and equipment can alter reported averages. Explaining those differences is more defensible than presenting a dramatic but inconsistent time series.</p>
+
+<p>The social difficulty is unequal capacity to respond. An alert assumes someone can change their activities or access cleaner indoor air. Families may lack affordable heating alternatives, and schools may lack maintained filtration. These are mechanisms the project proposes to investigate, not measured claims about every household. Treating protection as an individual purchase risks rewarding existing advantage.</p>
+
+<p>This scope also establishes the limits of the claim. A school forecast cannot replace affordable clean heating, industrial emission controls, or reliable public transport. Those measures address production of pollution; the pilot addresses an institution’s response to exposure. The proposal should compete honestly for public funds against those alternatives, not use technological novelty to avoid discussing priorities. Its justification depends on additional, measurable protection.</p>
+
+<aside class="question">
+<span class="eyebrow">THE SOCIAL-SCIENCE QUESTION</span>
+<p>Under what institutional and funding conditions can air-quality forecasts reduce unequal exposure in Almaty’s public schools, rather than simply shifting responsibility onto families and teachers?</p>
+</aside>
+
+<p>Schools provide a practical setting because one public institution can coordinate protection for many children. The relevant political questions concern budget allocation, institutional duties, and whose needs determine priorities. A forecast becomes a public benefit only when a responsible organisation has resources to act. This distinction connects atmospheric evidence to the project’s central concern: accountable collective protection.</p>
+</section>
+
+<section id="data" class="chapter">
+<div class="chapter-label">02 / BACKGROUND & DATA</div>
+<h2>What the numbers show.<br>What they leave out.</h2>
+
+<p>The data landscape contains measurements, reported emissions, and modelled estimates. Kazhydromet publishes environmental bulletins for Almaty. The Bureau of National Statistics reports stationary-source emissions. The World Bank examines modelled exposure and policy options. Academic studies contribute detailed observation campaigns and chemical analysis. These records answer different questions; combining them without respecting their units creates false certainty. <a class="ref" href="#r2">[2]</a><a class="ref" href="#r5">[5]</a><a class="ref" href="#r6">[6]</a></p>
+
+<div class="table-wrap">
+<table>
+<caption>Data landscape: institutional strengths and limits</caption>
+<thead><tr><th>Producer</th><th>Evidence</th><th>Principal limitation</th></tr></thead>
+<tbody>
+<tr><td>Kazhydromet <a href="#r5">[5]</a></td><td>Official environmental monitoring</td><td>Stations cannot represent every classroom or street</td></tr>
+<tr><td>Bureau of National Statistics <a href="#r6">[6]</a></td><td>Reported stationary-source emissions</td><td>Emitted mass is not ambient concentration</td></tr>
+<tr><td>World Bank <a href="#r2">[2]</a></td><td>Modelled exposure and intervention scenarios</td><td>Results depend on inventories and assumptions</td></tr>
+<tr><td>Research campaigns <a href="#r3">[3]</a>, <a href="#r4">[4]</a>, <a href="#r8">[8]</a></td><td>Seasonal, spatial, and chemical detail</td><td>Limited periods and sampling locations</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Original Figure 1 compares published seasonal means from Tursumbayeva et al. The winter value is 94.0 µg/m³ and the summer value is 9.9 µg/m³: a ratio of approximately 9.49. The chart deliberately uses a zero baseline and reproduces the underlying values below. It is a new visualisation of real published data, not a new measurement campaign. <a class="ref" href="#r4">[4]</a></p>
+
+<figure class="chart">
+<figcaption><strong>Figure 1. Winter concentrates the problem</strong><span>Seasonal mean PM₂.₅ · µg/m³ · historical study observations</span></figcaption>
+<div role="img" aria-label="Winter mean PM2.5 is 94.0 micrograms per cubic metre; summer mean is 9.9. Scale starts at zero and ends at 100.">
+<div class="chart-row"><span>Winter</span><div class="track"><div class="bar" style="width:94%"></div></div><b>94.0</b></div>
+<div class="chart-row"><span>Summer</span><div class="track"><div class="bar summer" style="width:9.9%"></div></div><b>9.9</b></div>
+<div class="axis"><span>0</span><span>50</span><span>100</span></div>
+</div>
+<p class="caption">Source: Tursumbayeva et al. (2022), abstract <a href="#r4">[4]</a>. Seasonal means are not annual citywide averages. Ratio calculated as 94.0 ÷ 9.9.</p>
+<details>
+<summary>View the underlying data</summary>
+<table><thead><tr><th>Season</th><th>Mean PM₂.₅, µg/m³</th></tr></thead><tbody><tr><td>Winter</td><td>94.0</td></tr><tr><td>Summer</td><td>9.9</td></tr></tbody></table>
+</details>
+</figure>
+
+<p>The contrast explains why the intervention prioritises the heating season. It does not reveal what fraction of the difference comes from fuel combustion, because meteorology changes simultaneously. Comparing a seasonal mean directly with an annual guideline would also confuse averaging periods. The figure supports targeting an operational problem while preserving uncertainty about its precise causal composition.</p>
+
+<p>For the pilot, every record would include time, location, instrument identity, units, and a quality flag. An agreed completeness rule would determine which days enter comparisons. Changes to placement or correction methods would be logged rather than hidden inside a revised average. Public exports would include a data dictionary and version history. This protocol is a proposed safeguard, not a description of all existing datasets. Its purpose is to make an independent analyst able to reconstruct the published results and identify where missing information changes the conclusion.</p>
+
+<h3>Four silences in the evidence</h3>
+
+<p><strong>Spatial coverage.</strong> A monitor observes its immediate environment. An average across available stations can overrepresent well-monitored neighbourhoods. Urban-fringe homes, school entrances, and outdoor workplaces may remain insufficiently characterised. Interpolation fills a map, not an evidentiary gap. The proposed service would distinguish observations from predictions and mark locations without adequate validation.</p>
+
+<p><strong>Measurement quality.</strong> Lower-cost instruments require comparison with reference equipment. Humidity, ageing, placement, and maintenance can influence performance. Missing observations must remain missing, rather than silently becoming clean-air periods. Publishing raw readings, correction methods, uptime, and calibration histories would allow others to evaluate the evidence rather than merely trust a coloured display.</p>
+
+<p><strong>Source attribution.</strong> Tonnes emitted are different from micrograms per cubic metre inhaled. Stack height, atmospheric chemistry, transport, and population location affect exposure. National stationary-source totals exclude important dimensions of local experience. A high concentration at a school cannot identify a particular household or enterprise as responsible without additional evidence.</p>
+
+<p><strong>Social and indoor conditions.</strong> Outdoor monitors do not reveal classroom ventilation, filtration, household resources, or whether staff can follow advice. The pilot would add indoor monitoring in participating rooms and voluntary interviews about barriers to action. These would investigate response capacity, not diagnose individual children or infer household poverty from their addresses.</p>
+
+<p>Trust should therefore be graded by purpose. Official statistics are useful for institutional reporting; research campaigns clarify mechanisms; local reference comparisons support operational decisions. No single dataset establishes all three. A credible evaluation needs stable measurement procedures and matched periods, with weather and equipment changes documented before interpreting an apparent improvement as policy success.</p>
+</section>
+
+<section id="research" class="chapter">
+<div class="chapter-label">03 / CURRENT STATE OF RESEARCH</div>
+<h2>Prediction is not explanation.<br>Explanation is not protection.</h2>
+
+<p>The research review combines Kazakhstan-specific evidence, a regional comparison with Astana, and international methodological studies. Six academic studies are organised by approach rather than presented as isolated summaries. Their disagreements concern what a method can establish: description, attribution, prediction, or evaluation. Distinguishing these purposes prevents a technically impressive model from carrying an unsupported policy claim.</p>
+
+<h3>Patterns and atmospheric mechanisms</h3>
+
+<p>Kerimray et al. (2020a) examine multiple pollutants across space and time in Almaty. Their observed seasonal patterns and elevation relationships suggest that one city average conceals meaningful variation. However, associations between elevation, season, and concentration cannot independently establish exact source shares. The study is strongest for describing patterns and identifying hypotheses for further investigation. <a class="ref" href="#r3">[3]</a></p>
+
+<p>Tursumbayeva et al. (2022) examine the planetary boundary layer, the lower atmospheric region in which mixing occurs. Their observations associate high winter pollution with restricted ventilation. This supports including meteorological predictors in a forecast. It does not establish a permanent prediction rule: a limited observation period cannot represent every unusual winter or future change in emissions. <a class="ref" href="#r4">[4]</a></p>
+
+<p>Together, these studies imply that the proposal needs physical context as well as statistical fitting. A model might learn calendar patterns that fail when weather or heating practices change. Equally, describing natural ventilation constraints does not absolve institutions from controlling emissions. Atmospheric vulnerability and political responsibility operate at different explanatory levels.</p>
+
+<h3>Source identification and interrupted activity</h3>
+
+<p>Kerimray et al. (2020b) examine Almaty during COVID restrictions. Reduced mobility did not eliminate particulate pollution, challenging a traffic-only explanation. Nevertheless, lockdown was not a randomised transport experiment: weather and other activities changed too. The study supports a multi-source interpretation, not the conclusion that transport is irrelevant or that one observed percentage represents traffic’s permanent contribution. <a class="ref" href="#r7">[7]</a></p>
+
+<p>Tursun et al. (2025) analyse particle chemistry in Almaty and Astana using Positive Matrix Factorization and air-mass trajectories. Their sampling identifies multiple contributing factors and highlights combustion. The regional comparison helps distinguish shared energy-system concerns from city-specific atmospheric conditions. Statistical factors still require interpretation, and sampled conditions cannot automatically represent every neighbourhood throughout the year. <a class="ref" href="#r8">[8]</a></p>
+
+<p>The two approaches are complementary. Interrupted activity asks what changes under unusual conditions; chemical analysis investigates mixtures present in collected particles. Neither turns a concentration forecast into evidence against a particular polluter. That distinction constrains the proposal: predictions guide protective responses, while enforcement requires separate inspection and legally sufficient attribution.</p>
+
+<h3>Calibration and credible evaluation</h3>
+
+<p>Zimmerman et al. (2018) test random-forest calibration for lower-cost multipollutant gas instruments. Their findings support combining machine learning with controlled measurement procedures. They do not directly validate the PM₂.₅ devices proposed here. Transferring the method requires local comparisons, suitable reference equipment, and evaluation under Almaty’s operating conditions rather than borrowing another instrument’s reported accuracy. <a class="ref" href="#r9">[9]</a></p>
+
+<p>Grange and Carslaw (2019) use meteorological normalisation to examine air-quality interventions in Britain. Accounting for weather reveals changes that raw time series can obscure. This is valuable when a windy winter might otherwise resemble policy success. Nevertheless, statistical adjustment depends on relevant predictors and assumptions; it does not eliminate unmeasured changes or automatically establish causation. <a class="ref" href="#r10">[10]</a></p>
+
+<p>These international methods change the evaluation design. Calibration must precede claims about neighbourhood differences. Assessment must compare forecasts with simple alternatives and separate prediction performance from intervention outcomes. A small average error can coexist with missed severe episodes; consequently, aggregate accuracy alone is an inadequate measure of public value.</p>
+
+<p>A further distinction concerns what counts as success. Forecast research can optimise an error statistic while overlooking whether warnings arrive before school decisions. Source research can identify combustion without explaining whether households can switch fuels. An institutional evaluation must connect those findings to feasible action. The proposal therefore treats technical accuracy as necessary evidence, while asking separately about distribution, workload, and implementation. This synthesis is an analytical choice: it follows from the different questions these methods answer, rather than from a single study claiming to resolve them all.</p>
+
+<h3>What remains unresolved</h3>
+
+<p>The reviewed evidence supports a seasonally intensified, multi-source problem shaped by emissions and ventilation. Exact source percentages remain sensitive to method, location, and period. The studies should not be forced into one ranking. A comparable uncertainty surrounds intervention effects: better monitoring can document a problem without changing anyone’s ability to avoid it.</p>
+
+<p>The project addresses the connection between information and institutional action. The six studies do not establish whether a forecast linked to funded school responses would distribute protection fairly in Almaty. This is a gap in the reviewed evidence, not a claim that no relevant research exists. The contribution would be a locally evaluated governance arrangement, rather than another algorithm claiming universal accuracy.</p>
+</section>
+
+<section id="solution" class="chapter">
+<div class="chapter-label">04 / THE AI-ASSISTED SOLUTION & ITS COST</div>
+<h2>Almaty Air Commons.<br>A forecast with a duty to act.</h2>
+
+<h3>The system and its public purpose</h3>
+
+<p>Fund a twelve-month pilot in twenty public schools, supported by sixty supplementary outdoor sensors, classroom measurements, and access to reference and meteorological data. These are proposed parameters, not an existing programme. Select schools using published exposure and protection-need criteria, with geographic coverage and community input. Participation should not depend on parents purchasing equipment or owning smartphones.</p>
+
+<p>A compact machine-learning model would predict next-day PM₂.₅ using recent concentrations, forecast weather, calendar variables, and fixed geographic characteristics. It would produce uncertainty intervals and data-quality flags. A persistence forecast, assuming tomorrow resembles today, would remain the baseline. Training and evaluation periods would be separated chronologically to prevent future information leaking into apparent performance.</p>
+
+<p>The municipality would own the service; a university team would validate it; contractors would maintain instruments and software. Health specialists would approve bilingual response guidance. School staff would decide how to adjust outdoor activities and operate available filtration. Missing or unreliable data would trigger a clearly labelled fallback, never fabricated readings. This website presents the proposal and evidence, not live forecasts.</p>
+
+<h3>Two documented implementations abroad</h3>
+
+<div class="cases">
+<article>
+<span class="eyebrow">BEIJING / CHINA</span>
+<h4>IBM Green Horizons</h4>
+<p>IBM and Beijing’s environmental authority implemented machine-learning-supported forecasting and decision support. IBM’s 2015 account documents one-kilometre forecasts seventy-two hours ahead and an alert workflow. The achieved capability was operational forecasting. The same announcement reports a city pollution reduction, but does not isolate AI’s contribution. Transfer the workflow, not a promised emissions effect. <a class="ref" href="#r11">[11]</a></p>
+</article>
+<article>
+<span class="eyebrow">SOUTH KOREA / OPERATIONAL FORECASTING</span>
+<h4>AI alongside atmospheric models</h4>
+<p>A 2026 operational-system evaluation compares numerical forecasts with LSTM and Transformer models. It reports an LSTM F1-score of 79% in the Seoul metropolitan area and improved severe-event detection from the Transformer. These are forecasting outcomes, not reductions in disease. The transferable lesson is to evaluate different error types instead of presenting one accuracy number as universal success. <a class="ref" href="#r12">[12]</a></p>
+</article>
+</div>
+
+<p>Both cases establish implementation in a similar sphere. Neither proves that importing a model improves Almaty’s schools. Institutional capacity, instrument quality, and local validation remain necessary. The pilot would publish forecast error, missed episodes, false alarms, and results by location. Staged introduction of supported responses would permit comparisons while preserving existing essential guidance for every school.</p>
+
+<p>The evaluation would measure indoor concentrations, response completion, staff workload, and access to protection. A proposed technical target is ten percent lower mean absolute error than persistence on held-out winter data, alongside an acceptable missed-alert rate agreed with health specialists. This is a design target. No mortality reduction, achieved accuracy, or causal exposure benefit is claimed in advance.</p>
+
+<div class="bill">
+<div class="bill-title">THE PUBLIC BILL<span>12-month pilot · all proposal prices are assumptions</span></div>
+
+<p style="margin-top:25px">Implementation would begin with permissions, co-design, reference comparisons, and a published analysis plan. The next phase would run forecasts silently so errors can be studied before staff rely on them. Supported alerts would then begin in stages, followed by a public evaluation. Procurement would require incident logs, transferable documentation, and access for independent reviewers. These stages are proposed safeguards rather than fixed promises about data availability. If reference access or adequate calibration cannot be secured, deployment should pause instead of presenting unreliable estimates as precise local knowledge.</p>
+
+<h3>Environmental: count the whole service</h3>
+
+<p>At three watts continuously, sixty sensors consume 1,576.8 kWh annually. A 150-watt server with a facility overhead multiplier of 1.4 consumes 1,839.6 kWh; add 100 kWh for training. Digital operations total 3,516.4 kWh. These are transparent engineering assumptions, not equipment measurements. Repeated retraining would require additional metering and justification.</p>
+
+<p>KEGOC reports 74.4% thermal generation and 11.0% gas-turbine generation in its 2025 breakdown. The thermal category is not an exact coal share. Electricity consumption therefore cannot be treated as carbon-free. An illustrative factor of 0.8 kg CO₂e/kWh gives 2.81 tonnes for digital operations; this is sensitivity analysis, not an official emissions inventory. <a class="ref" href="#r13">[13]</a></p>
+
+<p>Twenty assumed forty-watt filters, operated eight hours daily for 180 days, add 1,152 kWh. Combined operational use becomes 4,668.4 kWh, implying 3.73 tonnes under the same hypothetical factor. Actual filtration needs depend on room volume and device performance. These figures exclude embodied emissions, replacement filters, transport, and equipment disposal.</p>
+
+<p>Water cannot honestly be assigned a single measured value before hosting is chosen. At an illustrative zero-to-two litres per server-facility kWh, direct server cooling implies zero to 3.68 m³ annually. This excludes electricity-generation and manufacturing water. Procurement should require location-specific energy and cooling disclosures, repairability, and documented disposal rather than advertising an unsupported environmental benefit.</p>
+
+<h3>Economic: who pays, who benefits?</h3>
+
+<p>The base budget below totals KZT 116.15 million, including fifteen percent contingency. Every amount is an original planning assumption, not a supplier quotation. The equipment allocation must cover an appropriate indoor-monitoring and response package; it does not guarantee full-building protection. Major ventilation upgrades and cleaner heating remain separate investments.</p>
+
+<div class="calculator">
+<label for="sensors">Outdoor sensors <output id="sensor-count" for="sensors">60</output></label>
+<input id="sensors" type="range" min="20" max="100" step="10" value="60">
+<table>
+<thead><tr><th>Allocation</th><th>Million KZT</th></tr></thead>
+<tbody>
+<tr><td>Sensors: KZT 150,000 each</td><td id="sensor-price">9.00</td></tr>
+<tr><td>Installation, calibration, reference access</td><td>6.00</td></tr>
+<tr><td>Software, integration, hosting</td><td>18.00</td></tr>
+<tr><td>Staff and maintenance</td><td>36.00</td></tr>
+<tr><td>Translation, communication, accessibility</td><td>4.00</td></tr>
+<tr><td>Independent evaluation</td><td>8.00</td></tr>
+<tr><td>Indoor monitoring and school-response equipment</td><td>20.00</td></tr>
+<tr><td>Contingency: 15%</td><td id="contingency">15.15</td></tr>
+</tbody>
+</table>
+<div class="budget" aria-live="polite"><span id="budget">116.15</span><small>million KZT</small></div>
+<p class="caption">Sensitivity tool: (92 + 0.15 × sensors) × 1.15. Other allocations stay fixed; a larger programme also changes staffing and infrastructure costs.</p>
+</div>
+
+<p>The municipality would fund the pilot, potentially with research support. Contractors profit through published service fees, not advertising or selling personal data. An open tender, exportable records, documented code, and an exit clause would reduce dependence on one supplier. Before renewal, compare recurring costs and demonstrated benefits with simpler monitoring and direct protective spending.</p>
+
+<h3>Labor: automation changes responsibility</h3>
+
+<p>Technicians install, clean, calibrate, and replace instruments. Analysts investigate anomalies; developers maintain pipelines; translators and health professionals review messages. School staff need paid time, training, and backup cover. Fault labelling, complaint handling, and evaluation are hidden labor unless contracts name them. The proposal does not assume job losses; it redistributes tasks and must avoid adding unpaid duties to already busy employees.</p>
+
+<h3>Political governance: apply the Week 12 frameworks</h3>
+
+<p>Buribayeva, Khamzina and Buribayev identify institutional opacity, fragmented responsibility, and infrastructural dependence as Kazakhstan-specific risks. Their analysis anticipates vulnerabilities rather than measuring harm from this proposal. The response here is a published responsibility register: name who approves alerts, investigates failures, authorises changes, and can stop operation. An independent reviewer must be able to challenge the contractor. <a class="ref" href="#r14">[14]</a></p>
+
+<p>Roberts et al. favour coordination and capacity-building among existing international institutions. Applied by analogy locally, the pilot should strengthen cooperation among monitoring bodies, schools, municipal health authorities, and universities. Mhlambi’s relational perspective adds community well-being: parents, teachers, and maintenance workers should help define protection, rather than become passive recipients of automated instructions. These local applications are the project’s own interpretations. <a class="ref" href="#r15">[15]</a><a class="ref" href="#r16">[16]</a></p>
+
+<p>OECD Principles 1.1–1.5 translate into equitable school selection, privacy, understandable forecasts, secure operation, and identifiable accountability. UNESCO’s proportionality principle supports testing simpler alternatives; its human-oversight principle preserves public responsibility. Together they justify independent evaluation and a right to report problems. Neither framework makes the project beneficial simply because its stated purpose is environmental. <a class="ref" href="#r17">[17]</a><a class="ref" href="#r18">[18]</a></p>
+
+<p>Kazakhstan’s AI law supplies the domestic framework for transparency, risk management, and responsibility. Its exact application requires assessment of the deployed design. The EU AI Act supplies a comparison, not automatic jurisdiction: Articles 3, 5, and 6 and Annex III distinguish definitions, prohibited practices, and particular high-risk uses. A forecast is not automatically high-risk merely because a school receives it. <a class="ref" href="#r19">[19]</a><a class="ref" href="#r20">[20]</a></p>
+
+<p>The governance board should publish meeting decisions and report whose schools receive equipment first. Community consultation must influence actual choices, including alert timing and acceptable disruption, rather than merely endorse a completed design. Success indicators should include whether schools with fewer initial resources can act on the advice. An institution should not receive a poor performance label simply because its building requires investment the pilot cannot provide.</p>
+
+<h3>Data ethics: measure air, not children</h3>
+
+<p>The core model needs environmental observations, not names, diagnoses, faces, or movement histories. Obtain institutional permission for installation and informed consent for optional research participation, with appropriate parental consent and child assent where applicable. Public information should require no account. Separate contact details from survey responses, restrict access, and define deletion dates before collection.</p>
+
+<p>Kazakhstan’s personal-data law requires a domestic database for personal-data storage. Local hosting alone does not ensure security or meaningful consent. Publish environmental data where safe, aggregate sensitive research findings, and prohibit household profiling or automated sanctions. A complaint route must work offline as well as online so access does not depend on a smartphone. <a class="ref" href="#r21">[21]</a></p>
+</div>
+
+<aside class="verdict" id="verdict">
+<span class="eyebrow">THE VERDICT</span>
+<h3>Yes—only with funded protection.</h3>
+<p>Approve a limited pilot only if schools receive practical resources, staff are paid, independent evaluation is funded, privacy is protected, and contracts preserve public control. Stop or simplify the system if it adds little beyond baseline forecasts. Cleaner heating and source controls must continue independently. If these conditions cannot be met, direct spending on protection and emissions reduction is more defensible. The objective is lower, more fairly distributed exposure—not a more impressive dashboard.</p>
+</aside>
+</section>
+
+<section id="transparency" class="end-section">
+<div class="chapter-label">PROCESS / TRANSPARENCY</div>
+<h2>AI transparency statement</h2>
+<div class="statement">
+<p><strong>This website was created by ChatGPT, an AI system developed by OpenAI, at the request of Gulsana Kabylkyzy for the PLS 419 course.</strong> ChatGPT prepared the written synthesis, proposed intervention, scenario calculations, original chart, visual design, and HTML, CSS, and JavaScript. Gulsana selected the topic, specified the course requirements, provided the Week 12 reading list, and directed revisions.</p>
+<p>The retained approach combines documented findings with explicitly labelled proposal assumptions. During development, unsupported claims of continuously worsening pollution, guaranteed health benefits, and causal pollution reductions attributable to AI alone were excluded. Service notes and draft instructions were removed from the presentation, while methodological limitations and uncertainty were retained because they affect the argument.</p>
+<p>Online research checked publication identities and the specific reported findings used. Some findings were checked through publisher abstracts, institutional records, or official summaries rather than full texts. The chart redraws published values; the budget is an original scenario, not a supplier quotation. No original fieldwork, operating forecast model, completed pilot, or independent student verification is claimed.</p>
+</div>
+</section>
+
+<section id="sources" class="end-section">
+<div class="chapter-label">EVIDENCE / REFERENCES</div>
+<h2>Sources</h2>
+<p class="caption">Academic publications, official documents, and implementation accounts are identified below. Links include source records and DOIs where available. Research accessed during 23–24 November 2026. The six studies reviewed in Section 3 are references 3, 4, and 7–10.</p>
+
+<ol class="sources">
+<li id="r1"><span class="source-tag">Health guidance</span>
+World Health Organization. (2021). <em>WHO global air quality guidelines.</em>
+<a href="https://www.who.int/publications/i/item/9789240034228" target="_blank" rel="noopener">Publication</a> ·
+<a href="https://www.who.int/news-room/questions-and-answers/item/who-global-air-quality-guidelines" target="_blank" rel="noopener">Guidelines explained</a>.
+</li>
+
+<li id="r2"><span class="source-tag">World Bank · official research summary</span>
+World Bank. (2022, September 7). <em>More efficient residential heating in Kazakhstan can help with cleaner air and improved health, says new World Bank report.</em>
+<a href="https://www.worldbank.org/en/news/press-release/2022/09/07/more-efficient-residential-heating-in-kazakhstan-can-help-with-cleaner-air-and-improved-health" target="_blank" rel="noopener">Official summary</a>.
+Reports findings from <em>Clean Air and Cool Planet, Volume II</em>.
+</li>
+
+<li id="r3"><span class="source-tag">Academic · local atmospheric patterns</span>
+Kerimray, A., Azbanbayev, E., Kenessov, B., Plotitsyn, P., Alimbayeva, D., & Karaca, F. (2020a).
+<em>Spatiotemporal variations and contributing factors of air pollutants in Almaty, Kazakhstan.</em>
+Aerosol and Air Quality Research, 20(6), 1340–1352.
+<a href="https://doi.org/10.4209/aaqr.2019.09.0464" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://nur.nu.edu.kz/items/41bbfd8f-82f0-4653-8bd7-ef0f703a8cfd" target="_blank" rel="noopener">Institutional record and abstract</a>.
+</li>
+
+<li id="r4"><span class="source-tag">Academic · chart data source</span>
+Tursumbayeva, M., Kerimray, A., Karaca, F., & Permadi, D. A. (2022).
+<em>Planetary boundary layer and its relationship with PM₂.₅ concentrations in Almaty, Kazakhstan.</em>
+Aerosol and Air Quality Research, 22(8).
+<a href="https://doi.org/10.4209/aaqr.210294" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://nur.nu.edu.kz/entities/publication/fcff39a3-b738-499f-81bc-2d1088d9bbad" target="_blank" rel="noopener">Institutional abstract containing seasonal means</a>.
+</li>
+
+<li id="r5"><span class="source-tag">Official monitoring · data landscape</span>
+Kazhydromet. (2026). <em>Monthly newsletters on the state of the environment.</em>
+<a href="https://www.kazhydromet.kz/en/ecology/ezhemesyachnyy-informacionnyy-byulleten-o-sostoyanii-okruzhayuschey-sredy/2026" target="_blank" rel="noopener">Bulletin index</a>.
+Used to identify the official reporting system, not as a source of an unexamined monthly statistic.
+</li>
+
+<li id="r6"><span class="source-tag">Official statistics · stationary-source emissions</span>
+Bureau of National Statistics of Kazakhstan. (2025, June 30).
+<em>On the state of protection of atmospheric air in the Republic of Kazakhstan in 2024.</em>
+<a href="https://stat.gov.kz/upload/iblock/564/9q16polsg5mp8xg4gzjucle9b06feabh/B-04-07-G%20%28eng%29.pdf" target="_blank" rel="noopener">Official publication</a>.
+</li>
+
+<li id="r7"><span class="source-tag">Academic · lockdown comparison</span>
+Kerimray, A., Baimatova, N., Ibragimova, O. P., Bukenov, B., Kenessov, B., Plotitsyn, P., & Karaca, F. (2020b).
+<em>Assessing air quality changes in large cities during COVID-19 lockdowns: The impacts of traffic-free urban conditions in Almaty, Kazakhstan.</em>
+Science of the Total Environment, 730, 139179.
+<a href="https://doi.org/10.1016/j.scitotenv.2020.139179" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://research.nu.edu.kz/en/publications/assessing-air-quality-changes-in-large-cities-during-covid-19-loc/" target="_blank" rel="noopener">Institutional abstract</a>.
+</li>
+
+<li id="r8"><span class="source-tag">Academic · Almaty and Astana source apportionment</span>
+Tursun, K., et al. (2025).
+<em>Dominant sources of PM₂.₅ in Kazakhstan’s urban cities: A PMF and HYSPLIT-based study for air quality management in Central Asia.</em>
+Urban Climate, 64, 102706.
+<a href="https://doi.org/10.1016/j.uclim.2025.102706" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://research.nu.edu.kz/ru/publications/dominant-sources-of-pmsub25sub-in-kazakhstans-urban-cities-a-pmf-/" target="_blank" rel="noopener">Institutional record and full author list</a>.
+</li>
+
+<li id="r9"><span class="source-tag">Academic · instrument calibration</span>
+Zimmerman, N., et al. (2018).
+<em>A machine learning calibration model using random forests to improve sensor performance for lower-cost air quality monitoring.</em>
+Atmospheric Measurement Techniques, 11, 291–313.
+<a href="https://doi.org/10.5194/amt-11-291-2018" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://amt.copernicus.org/articles/11/291/2018/" target="_blank" rel="noopener">Publisher record and author list</a>.
+</li>
+
+<li id="r10"><span class="source-tag">Academic · evaluation and weather adjustment</span>
+Grange, S. K., & Carslaw, D. C. (2019).
+<em>Using meteorological normalisation to detect interventions in air quality time series.</em>
+Science of the Total Environment, 653, 578–588.
+<a href="https://doi.org/10.1016/j.scitotenv.2018.10.344" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://eprints.whiterose.ac.uk/id/eprint/138819/" target="_blank" rel="noopener">Institutional abstract</a>.
+</li>
+
+<li id="r11"><span class="source-tag">Implementation case · vendor account</span>
+IBM. (2015, December 9).
+<em>IBM expands Green Horizons initiative globally to address pressing environmental and pollution challenges.</em>
+<a href="https://uk.newsroom.ibm.com/2015-Dec-09-IBM-Expands-Green-Horizons-Initiative-Globally-To-Address-Pressing-Environmental-and-Pollution-Challenges" target="_blank" rel="noopener">IBM announcement</a>.
+Evidence of deployment and forecasting capability; not an independent causal evaluation.
+</li>
+
+<li id="r12"><span class="source-tag">Implementation case · academic evaluation</span>
+<em>Evaluation of PM₂.₅ prediction performance of CMAQ and AI models (LSTM and Transformer) in an operational air quality forecasting system.</em> (2026).
+Journal of Industrial and Engineering Chemistry, 159, 355–363.
+<a href="https://doi.org/10.1016/j.jiec.2025.12.028" target="_blank" rel="noopener">DOI and publisher record</a> ·
+<a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003363350" target="_blank" rel="noopener">Korea Citation Index record and abstract</a>.
+Title-first entry; the linked abstract reports the forecasting results used here.
+</li>
+
+<li id="r13"><span class="source-tag">Electricity system · official operator</span>
+KEGOC. <em>National power system: generation structure, 2025 reporting period.</em>
+<a href="https://www.kegoc.kz/electric-power/natsionalnaya-energosistema/index_en.php" target="_blank" rel="noopener">Official generation breakdown</a>.
+The project’s carbon-intensity and water-intensity factors are illustrative assumptions, not KEGOC figures.
+</li>
+
+<li id="r14"><span class="source-tag">Week 12 · Kazakhstan public-sector risks</span>
+Buribayeva, M., Khamzina, Z., & Buribayev, Y. (2026).
+<em>Potential negative effects of artificial intelligence in Kazakhstan’s public sector: An analysis of hidden risks.</em>
+Frontiers in Artificial Intelligence, 9, 1781993.
+<a href="https://doi.org/10.3389/frai.2026.1781993" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2026.1781993/full" target="_blank" rel="noopener">Full text, especially Sections 1, 4, and 5</a>.
+</li>
+
+<li id="r15"><span class="source-tag">Week 12 · institutional coordination</span>
+Roberts, H., Hine, E., Taddeo, M., & Floridi, L. (2024).
+<em>Global AI governance: Barriers and pathways forward.</em>
+International Affairs, 100(3), 1275–1286.
+<a href="https://doi.org/10.1093/ia/iiae073" target="_blank" rel="noopener">DOI</a> ·
+<a href="https://atiro.turing.ac.uk/esploro/outputs/journalArticle/Global-AI-governance-barriers-and-pathways/9922461509548" target="_blank" rel="noopener">Institutional record</a>.
+</li>
+
+<li id="r16"><span class="source-tag">Week 12 · relational ethics</span>
+Mhlambi, S. (2020).
+<em>From rationality to relationality: Ubuntu as an ethical and human rights framework for artificial intelligence governance.</em>
+Carr Center for Human Rights Policy, Harvard Kennedy School.
+<a href="https://cyber.harvard.edu/story/2020-07/rationality-relationality-ubuntu-ethical-and-human-rights-framework-artificial" target="_blank" rel="noopener">Harvard institutional description and publication link</a>.
+The discussion here uses the relational framework described in the institutional overview.
+</li>
+
+<li id="r17"><span class="source-tag">Week 12 · principles 1.1–1.5</span>
+OECD. (2019, updated 2024). <em>OECD AI Principles.</em>
+<a href="https://oecd.ai/en/ai-principles" target="_blank" rel="noopener">Official principles</a>.
+</li>
+
+<li id="r18"><span class="source-tag">Week 12 · values and principles</span>
+UNESCO. (2021). <em>Recommendation on the ethics of artificial intelligence.</em>
+<a href="https://www.unesco.org/en/legal-affairs/recommendation-ethics-artificial-intelligence" target="_blank" rel="noopener">Official text</a>.
+See values and principles, including proportionality, prevention of harm, privacy, and human oversight.
+</li>
+
+<li id="r19"><span class="source-tag">Week 12 · Kazakhstan legislation</span>
+Republic of Kazakhstan. (2025).
+<em>Law No. 230-VIII “On Artificial Intelligence,” 17 November 2025.</em>
+<a href="https://adilet.zan.kz/eng/docs/Z2500000230" target="_blank" rel="noopener">Adilet, unofficial English translation</a> ·
+<a href="https://www.gov.kz/org/maidd/press/news/details/1143060?lang=ru" target="_blank" rel="noopener">Official ministry explanation, 18 January 2026</a>.
+</li>
+
+<li id="r20"><span class="source-tag">Week 12 · comparative legal framework</span>
+European Union. (2024).
+<em>Regulation (EU) 2024/1689: Artificial Intelligence Act.</em>
+<a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">Official Journal text</a> ·
+<a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32024R1689" target="_blank" rel="noopener">EUR-Lex record</a>.
+Course comparison uses Article 3(1), Article 5, Article 6, and Annex III of the 2024 instrument.
+</li>
+
+<li id="r21"><span class="source-tag">Kazakhstan legislation · personal data</span>
+Republic of Kazakhstan. <em>On personal data and their protection.</em>
+<a href="https://www.gov.kz/org/aqmola/documents/details/176880?lang=en" target="_blank" rel="noopener">Government-hosted English text</a>.
+Article 12 addresses domestic storage; Articles 14–16 address use, distribution, and cross-border transfer.
+</li>
+</ol>
+</section>
+
+<footer>
+<div class="footer-row">
+<div>UNDER THE INVERSION · ALMATY AIR COMMONS<br>GULSANA KABYLKYZY · PLS 419 COURSE<br>Research proposal · 24 November 2026</div>
+<button type="button" onclick="window.print()">PRINT THIS PROJECT</button>
+</div>
+</footer>
+</main>
+
+<script>
+(function(){
+const slider=document.getElementById('sensors');
+const number=new Intl.NumberFormat('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+function updateBudget(){
+ const count=Number(slider.value);
+ const subtotal=92+0.15*count;
+ document.getElementById('sensor-count').textContent=count;
+ document.getElementById('sensor-price').textContent=number.format(count*0.15);
+ document.getElementById('contingency').textContent=number.format(subtotal*0.15);
+ document.getElementById('budget').textContent=number.format(subtotal*1.15);
+}
+slider.addEventListener('input',updateBudget);
+updateBudget();
+
+const links=Array.from(document.querySelectorAll('nav a'));
+const targets=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+let scheduled=false;
+function updateReading(){
+ const height=document.documentElement.scrollHeight-innerHeight;
+ document.getElementById('progress').style.width=(height>0?Math.min(100,scrollY/height*100):0)+'%';
+ let current=targets[0];
+ for(const target of targets){
+  if(target.getBoundingClientRect().top<=155)current=target;
+ }
+ links.forEach(a=>{
+  const active=a.getAttribute('href')==='#'+current.id;
+  a.classList.toggle('active',active);
+  if(active)a.setAttribute('aria-current','location');
+  else a.removeAttribute('aria-current');
+ });
+ scheduled=false;
+}
+addEventListener('scroll',()=>{
+ if(!scheduled){scheduled=true;requestAnimationFrame(updateReading);}
+},{passive:true});
+addEventListener('resize',updateReading);
+updateReading();
+})();
+</script>
+</body>
+</html>
